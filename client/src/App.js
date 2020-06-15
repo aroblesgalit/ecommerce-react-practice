@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import './App.css';
-import HomeScreen from "./Pages/HomeScreen";
-import ProductScreen from "./Pages/ProductScreen";
+import "./App.css";
+import HomeScreen from "./pages/HomeScreen";
+import ProductScreen from "./pages/ProductScreen";
 
 function App() {
 
