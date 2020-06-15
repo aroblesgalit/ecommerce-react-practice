@@ -14,6 +14,10 @@ function ProductScreen(props) {
         dispatch(detailsProduct(props.match.params.id));
     }, []);
 
+    const handleAddToCart = () => {
+        props.history.push("/cart/" + props.match.params.id + "?qty=" + qty);
+    }
+
     return (
         <div>
             <div className="back-to-result">
@@ -64,7 +68,7 @@ function ProductScreen(props) {
                                             </select>
                                         </li>
                                         <li>
-                                            <button className="button primary">Add to Cart</button>
+                                            <button onClick={handleAddToCart} className="button primary">Add to Cart</button>
                                         </li>
                                     </ul>
                                 </div>
