@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import HomeScreen from "./pages/HomeScreen";
 import ProductScreen from "./pages/ProductScreen";
+import CartScreen from "./pages/CartScreen";
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
             <Link to="/">amazona</Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
+            <a href="/cart">Cart</a>
             <a href="signin.html">Sign In</a>
           </div>
         </header>
@@ -43,8 +44,9 @@ function App() {
         </aside>
         <main className="main">
           <div className="content">
-          <Route exact path="/" component={HomeScreen}></Route>
-          <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route exact path="/" component={HomeScreen} />
+          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/cart/:id?" component={CartScreen} />
           </div>
         </main>
         <footer className="footer">
