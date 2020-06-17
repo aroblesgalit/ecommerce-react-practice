@@ -4,6 +4,7 @@ import "./App.css";
 import HomeScreen from "./pages/HomeScreen";
 import ProductScreen from "./pages/ProductScreen";
 import CartScreen from "./pages/CartScreen";
+import SigninScreen from "./pages/SigninScreen";
 
 function App() {
 
@@ -26,8 +27,8 @@ function App() {
             <Link to="/">amazona</Link>
           </div>
           <div className="header-links">
-            <a href="/cart">Cart</a>
-            <a href="signin.html">Sign In</a>
+            <Link to="/cart">Cart</Link>
+            <Link to="/signin">Sign In</Link>
           </div>
         </header>
         <aside className="sidebar">
@@ -35,10 +36,10 @@ function App() {
           <button className="sidebar-close-button" onClick={closeMenu}>x</button>
           <ul>
             <li>
-              <a href="index.html">Pants</a>
+              <Link to="index.html">Pants</Link>
             </li>
             <li>
-              <a href="index.html">Shirts</a>
+              <Link to="index.html">Shirts</Link>
             </li>
           </ul>
         </aside>
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/" component={HomeScreen} />
           <Route path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/signin" component={SigninScreen} />
           </div>
         </main>
         <footer className="footer">
