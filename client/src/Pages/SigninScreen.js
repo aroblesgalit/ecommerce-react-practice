@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signin } from "../actions/userActions";
+import { userSigninReducer } from "../reducers/userReducers";
 
 function SigninScreen(props) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const userSignin = useSelector(state => state.userSignin);
+    const { loading, userInfo, error } = userSignin;
     const dispatch = useDispatch();
 
     useEffect(() => {
-
-    }, []);
+        if (userInfo) {
+            props.history.push("/");
+        }
+    }, [userInfo]);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -27,13 +31,17 @@ function SigninScreen(props) {
                         <h2>Sign-In</h2>
                     </li>
                     <li>
-                        <label for="email">
+                        { loading && <div>Loading...</div> }
+                        { error && <div>{error}</div> }
+                    </li>
+                    <li>
+                        <label htmlFor="email">
                             Email
                         </label>
                         <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
                     </li>
                     <li>
-                        <label for="password">
+                        <label htmlFor="password">
                             Password
                         </label>
                         <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
