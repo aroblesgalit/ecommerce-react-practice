@@ -3,6 +3,7 @@ import data from "./data";
 import dotenv from "dotenv";
 import config from "./config";
 import mongoose from "mongoose";
+import userRoute from "./routes/userRoute";
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ mongoose.connect(mongodbUrl, {
 }).catch(err => console.log(err.reason));
 
 const app = express();
+
+app.use("/api/users", userRoute);
 
 app.get("/api/products", (req, res) => {
     res.send(data.products);
